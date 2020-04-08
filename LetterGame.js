@@ -61,6 +61,17 @@ function randomize() {
 
 	
 }
+//Checks for corresponding letters
+function checkLetter(i){
+	var currentObject;
+	for (var o; o < letters.length; o++;) {
+		currentObject = letters[o];
+		if (currentObject.character == i) {
+			countScore++;
+			letters[o] = "";
+		}
+	}
+}
 //Creates random amount of letters
 function spawn(){
 	var amntOfSpawns = Math.floor((Math.random() * 8) + 1);
@@ -81,6 +92,7 @@ function startButton() {
 //Starts the game
 function runGame() {
 	setInterval(spawn(), 500);
+	document.onkeypress = checkLetter(event.key);	
 }
 
 
