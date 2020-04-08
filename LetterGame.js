@@ -1,6 +1,6 @@
 // JavaScript source code
 
-var gameField[15];
+var gameField = [];
 var colors = ['red','yellow','green','blue','orange'];
 
 var amntOfSpawns=0;
@@ -20,7 +20,7 @@ class letter{
 }
 
 //Start and Stop button
-void startButton{
+function startButton() {
 	if (gameField.length == 0){
 		runGame();
 	}
@@ -29,7 +29,7 @@ void startButton{
 	}
 }
 //Starts the game
-void runGame(){
+function runGame() {
 	for (var i = 0; i < gameField.length; i++) { 
     gameField[i] = new Array(15); 
 	}
@@ -38,21 +38,21 @@ void runGame(){
 
 
 //Stops the game
-void stopGame(){
+function stopGame() {
 	alert("Your Score is: " + playerScore);
 	gameField = [];
 }
 
 //Move letters down one slot
-void move(){
+function move() {
 	//gameField.indexOf(this)
 }
 
 //Create letters
-void spawn(){
+function spawn() {
 	gameField.forEach(move());
 	amntOfSpawns = Math.floor((Math.random() * 8) + 1);
-	for (var e = 0; e < amntOfSpawns; e++;){
+	for (var e = 0; e < amntOfSpawns; e++){
 		rndPosition = Math.floor((Math.random() * 15) + 1);
 		gameField[rndPosition][0] = new letter();
 	}
