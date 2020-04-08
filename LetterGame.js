@@ -2,6 +2,7 @@
 
 var letters = [];
 var letterID = 0;
+var i;
 var colors = ['red','yellow','green','blue','orange'];
 var characters = ['a','s','d','f','g','h','j','k'];
 
@@ -29,14 +30,13 @@ class letter{
 	}
 
 	//Move letters down one slot
-	function move() {
+	move() {
 	this.style.top = parseInt(this.style.top,3) + this.speed; 
 	if (parseInt(this.style.top, 3) > 500) {
 		countScore(-1);
 		delete this;
 	}
-}
-
+	}
 }
 
 // Creates random attributes for each new letter

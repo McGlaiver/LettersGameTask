@@ -2,11 +2,24 @@ body {
     background: black;
 }
 
-#gameboard{
-    align: center;
+#gameUi {
+    font-size: 15px;
+    color: white;
+    text-align: right;
+    margin: 100px;
+
+}
+button {
+    color: black;
+    font-size: 12px;
+    width: 100px;
+    height: 50px;
+}
+
+#gameboard {
+    margin: auto;
     height: 500px;
     width: 500px;
-    border-bottom: solid, red, 5px;
-    border-right: solid, red, 5px;
-
+    border-bottom: solid red 5px;
+    border-right: solid red 5px;
 }
