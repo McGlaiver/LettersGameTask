@@ -17,9 +17,16 @@ button {
 }
 
 #gameboard {
+    position: relative;
     margin: auto;
     height: 500px;
     width: 500px;
     border-bottom: solid red 5px;
     border-right: solid red 5px;
+}
+.letter {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+
 }
