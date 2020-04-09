@@ -1,15 +1,15 @@
 // JavaScript source code
 
-var letters = [];
-var spawnInterval = 10;
-var i;
-var gametime;
-var gameboard;
-var colors = ['red','yellow','green','blue','orange'];
-var characters = ['a','s','d','f','g','h','j','k'];
-var spawnCounter = 0;
-var playerScore = 0;
-var x = 0;
+let letters = [];
+let spawnInterval = 10;
+let i;
+let gametime;
+let gameboard;
+let colors = ['red','yellow','green','blue','orange'];
+let characters = ['a','s','d','f','g','h','j','k'];
+let spawnCounter = 0;
+let playerScore = 0;
+let x = 0;
 document.addEventListener('DOMContentLoaded', (event) => {
 	gameboard = document.getElementById("gameboard");
   })
@@ -36,7 +36,7 @@ class Letter{
 		style.lineHeight = bgSize + "px";
 		style.left = position +"px";
 		style.top = "0px";
-		// Better than var + "xx";
+		// Better than let + "xx";
 		style.fontSize = `${fontSize}px`;
 
 		gameboard.appendChild(this.element);
@@ -57,25 +57,24 @@ class Letter{
 			delete letters[letters.indexOf(this)];
 			gameboard.removeChild(this.element);
 	}
-
 }
 
 // Creates random attributes for each new letter
 function randomize() {
 
-	var characterPos = Math.floor((Math.random() * characters.length));
-	var character = characters[characterPos];
+	let characterPos = Math.floor((Math.random() * characters.length));
+	let character = characters[characterPos];
 
-	var bgSize = Math.floor((Math.random() * 25) + 25);
+	let bgSize = Math.floor((Math.random() * 25) + 25);
 
-	var color = Math.floor((Math.random() * colors.length));
-	var bgColor = colors[color];
+	let color = Math.floor((Math.random() * colors.length));
+	let bgColor = colors[color];
 
-	var fontSize = Math.floor((Math.random() * 15) + 10);
+	let fontSize = Math.floor((Math.random() * 15) + 10);
 
-	var speed = Math.floor((Math.random() * 5) + 2);
+	let speed = Math.floor((Math.random() * 5) + 2);
 
-	var position = Math.floor((Math.random() * 440) + 10);
+	let position = Math.floor((Math.random() * 440) + 10);
 
 	letters.push(new Letter(character, bgSize, bgColor, fontSize, speed, position));
 
@@ -87,6 +86,7 @@ function checkLetter(event){
 	letters.forEach((letter)=>{if (letter.character === event.key) {
 		setScore(playerScore+1);
 		letter.destroy();
+
 	}});
 		
 	}
@@ -99,8 +99,8 @@ function spawn(){
 		letter.move();
 	}*/
 	if (spawnCounter === spawnInterval){
-		var amntOfSpawns = Math.floor((Math.random() * 5) + 1);
-		for (var e = 0; e < amntOfSpawns; e++){
+		let amntOfSpawns = Math.floor((Math.random() * 5) + 1);
+		for (let e = 0; e < amntOfSpawns; e++){
 			randomize();
 		}
 		spawnCounter = 0;
