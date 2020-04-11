@@ -85,19 +85,20 @@ function randomize() {
 // Double check functionality tomorrow
 function checkLetter(event){
 	let howMany = 0;
-	for (u=0; u < letters.length; u++){
-		if (letters[u] === event.key){howMany++;}
+	for (var u=0; u < letters.length; u++){
+		if(letters[u] == undefined) u++;
+ 		else if(letters[u].character === event.key){howMany++;}
 		if (howMany > 1) break;
 		
 	}
-	if (howMany < 2){setScore(playerScore-5);}
+	if (howMany < 2){setScore(playerScore-2);}
 	else
 	{
 	letters.forEach((letter)=>{if (letter.character === event.key) {
 		setScore(playerScore+1);
 		letter.destroy();
-
 	}});
+	howMany = 0;
 	}
 	}
 
